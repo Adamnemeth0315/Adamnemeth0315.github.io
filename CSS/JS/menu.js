@@ -25,11 +25,11 @@ let createButtonGroup = parent => {
 
   let btnInfo = document.createElement("button");
   btnInfo.className = "btn-info btn";
-  btnInfo.innerHTML = '<i class="fas fa-shopping-basket"></i>';
+  btnInfo.innerHTML = '<i class="fab fa-amazon-pay">Pay</i>';
 
   let btnDanger = document.createElement("button");
   btnDanger.className = "btn-danger btn";
-  btnDanger.innerHTML = '<i class="fas fa-shopping-basket"></i>';
+  btnDanger.innerHTML = '<i class="fas fa-shopping-basket">Delete</i>';
 
   group.appendChild(btnInfo);
   group.appendChild(btnDanger);
