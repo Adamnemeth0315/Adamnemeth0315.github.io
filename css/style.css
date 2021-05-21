@@ -1,0 +1,257 @@
+@font-face{
+    font-family: "Roboto";
+    src: url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300;1,400&display=swap');
+    font-weight: 500;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(#eb2a08 0%, #ED35FF 100%);
+}
+
+html {
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+.main__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    padding: 1.2rem;
+    font-size: .8rem;
+}
+
+.header {
+    color: #FFF; 
+}
+
+.date{
+    color: #FF3345;
+    font-weight: 600;
+    align-self: flex-start;
+    margin-top: 1.2rem;
+    margin-left: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.day{
+    color: #FF3345;
+    font-weight: 600;
+    align-self: flex-start;
+    margin-top: 1.2rem;
+    margin-left: 1.2rem;
+}
+
+.list__box {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 70vW;
+    height: auto;
+    background-color: #FFF;
+    padding: 2rem;
+    padding-bottom: 0.7rem;
+}
+
+.form__input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    min-width: 100%;
+}
+
+.input{
+    width: 87%;
+    border: 1px solid #a3a3a3;
+    border-radius: 3px;
+    padding: 10px;
+    line-height: 1.4rem;
+    outline: none;
+    font-weight: 600;
+}
+
+.addBtn {
+    width: 7%;
+    font-size: 1.5rem;
+    color: #FFF;
+    line-height: 2.4rem;
+    margin-left: 1rem;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    background-color: #a3a3a3;
+}
+
+.addBtn:hover {
+    transform: scale(.95);
+}
+
+.addBtn:active {
+    background-color: #3665FF ;
+}
+
+.text__div {
+    font-weight: 300;
+    align-self: flex-start;
+    margin-top: 1.8rem;
+    margin-bottom: 1.3rem;
+    margin-left: 1.2rem;
+    font-size: 1.3rem;
+    color: #a3a3a3;
+}
+
+.todo__container {
+    display: none;  
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main__container.container.todo__container.todo__item{
+    display: flex;
+    padding: .3rem;
+}
+
+li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul li {
+    cursor: pointer;
+    width: 63vw;
+    line-height: 1.4rem;
+    padding: 0.6rem;
+    background-color: #d3d3d3;
+    text-align: center;
+    margin: .3rem;
+}
+
+ul li:hover {
+    background-color: #a6a6a6;
+}
+
+.complete__todos {
+    display: none;
+}
+
+.complete__todos {
+    display: flex;
+    text-decoration: line-through;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 50px 0 0 0;
+}
+
+.hide{
+    display: none;
+}
+
+.complete__todos>li {
+    background-color: #EEE;
+}
+
+.todo__checkbox {
+    align-self: flex-start;
+}
+
+
+.todo__item .deleteBtn {
+    display: inline-block;
+    align-self: flex-end;
+    width: 4rem;
+    line-height: 1.6rem;
+    color: #FFF;
+    border: none;
+    background-color: #FF3040;
+}
+
+.todo__settings {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-end;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.showCompleteBtn {
+    width: 200px;
+    line-height: 1.5rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #FFF;
+    margin: 3px;
+}
+
+.clearBtn {
+    width: 200px;
+    line-height: 1.5rem;
+    border: none;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    margin: 3px;
+    background-color: #FFF;
+}
+
+.clearBtn:hover, .showCompleteBtn:hover {
+    box-shadow: 1px 1px rgba(0, 0,0, 0.4);
+}
+
+.chill__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+}
+
+.chill__box.hidden{
+    display: none;
+}
+
+.chill__text {
+    font-size: 20px;
+}
+
+.chill__box.hidden {
+    display: none;
+}
+
+.controller {
+    background:none;
+    font-weight: 600;
+    padding: 0 1rem;
+}
+
+.show-hide {
+    border: none;
+    background: none;
+}
+
+.controller:hover {
+    color : #FD263D;
+    cursor: pointer;
+}
