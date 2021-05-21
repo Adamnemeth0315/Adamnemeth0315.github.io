@@ -1,18 +1,13 @@
-@font-face{
-    font-family: "Roboto";
-    src: url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300;1,400&display=swap');
-    font-weight: 500;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300;1,500&display=swap');
 
 * {
     box-sizing: border-box;
+    padding: 0;
 }
 
 body {
-    padding: 0;
-    margin: 0;
     min-height: 100vh;
-    background: linear-gradient(#eb2a08 0%, #ED35FF 100%);
+    background: linear-gradient(#eb2a08 0%, #d4b218 100%);
 }
 
 html {
@@ -20,13 +15,24 @@ html {
     font-size: 18px;
 }
 
-.main__container {
+.body__container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70vW;
+    height: auto;
+    background-color: #FFF;
+    padding: 2rem;
+    padding-bottom: 0.7rem;
+}
+
+.div-container {
     padding: 1.2rem;
     font-size: .8rem;
 }
@@ -35,7 +41,15 @@ html {
     color: #FFF; 
 }
 
-.date{
+.body__day {
+    color: #FF3345;
+    font-weight: 600;
+    align-self: flex-start;
+    margin-top: 1.2rem;
+    margin-left: 1.2rem;
+}
+
+.body__date {
     color: #FF3345;
     font-weight: 600;
     align-self: flex-start;
@@ -44,34 +58,15 @@ html {
     margin-bottom: 1.2rem;
 }
 
-.day{
-    color: #FF3345;
-    font-weight: 600;
-    align-self: flex-start;
-    margin-top: 1.2rem;
-    margin-left: 1.2rem;
-}
-
-.list__box {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    width: 70vW;
-    height: auto;
-    background-color: #FFF;
-    padding: 2rem;
-    padding-bottom: 0.7rem;
-}
-
-.form__input{
+.body__todo-insert{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    min-width: 100%;
+    min-width: 100%; 
 }
 
-.input{
+.todo__input{
     width: 87%;
     border: 1px solid #a3a3a3;
     border-radius: 3px;
@@ -81,7 +76,7 @@ html {
     font-weight: 600;
 }
 
-.addBtn {
+.todo__btn{
     width: 7%;
     font-size: 1.5rem;
     color: #FFF;
@@ -91,18 +86,18 @@ html {
     border-radius: 3px;
     outline: none;
     cursor: pointer;
-    background-color: #a3a3a3;
+    background-color: #a3a3a3; 
 }
 
-.addBtn:hover {
+.todo__btn:hover {
     transform: scale(.95);
 }
 
-.addBtn:active {
+.todo__btn:active {
     background-color: #3665FF ;
 }
 
-.text__div {
+.text__div{
     font-weight: 300;
     align-self: flex-start;
     margin-top: 1.8rem;
@@ -112,8 +107,8 @@ html {
     color: #a3a3a3;
 }
 
-.todo__container {
-    display: none;  
+.todo__list--pending{
+    display: flex;  
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -122,37 +117,39 @@ html {
     margin: 0;
 }
 
-.main__container.container.todo__container.todo__item{
+.container.todo__item{
     display: flex;
     padding: .3rem;
 }
 
-li {
+.todo__item {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-ul li {
-    cursor: pointer;
+.todo__list--pending div{
+    user-select: none;
     width: 63vw;
     line-height: 1.4rem;
     padding: 0.6rem;
+    font-weight: 600;
     background-color: #d3d3d3;
     text-align: center;
     margin: .3rem;
 }
 
-ul li:hover {
+.todo__list--pending div:hover {
     background-color: #a6a6a6;
 }
 
-.complete__todos {
+
+.todo__list--done {
     display: none;
 }
 
-.complete__todos {
+.show-done .todo__list--done {
     display: flex;
     text-decoration: line-through;
     flex-direction: column;
@@ -163,21 +160,20 @@ ul li:hover {
     margin: 50px 0 0 0;
 }
 
-.hide{
-    display: none;
+.show-done .todo__list--done div {
+    background-color: #FFF;
+    font-weight: 600;
+    line-height: 1.4rem;
+    margin: .3rem;
+    padding: 0.6rem;
+    text-align: center;
+    user-select: none;
+    width: 63vw;
 }
 
-.complete__todos>li {
-    background-color: #EEE;
-}
-
-.todo__checkbox {
-    align-self: flex-start;
-}
-
-
-.todo__item .deleteBtn {
+.delBtn {
     display: inline-block;
+    opacity: 0;
     align-self: flex-end;
     width: 4rem;
     line-height: 1.6rem;
@@ -186,7 +182,40 @@ ul li:hover {
     background-color: #FF3040;
 }
 
-.todo__settings {
+
+.delBtn:hover {
+    display: inline-block;
+    box-shadow: 1px 2px  #020202;
+    cursor: pointer;
+    opacity: 100%;
+    animation: animated-btn 1s ease-in-out; 
+}
+
+@keyframes animated-btn {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+input[type=checkbox]{
+    cursor: pointer;
+}
+
+.text {
+    font-size: 1.3rem;
+    margin-top: 1.8rem;
+    margin-bottom: 1.3rem;
+    margin-left: 1.2rem;
+    color: #a3a3a3;
+    font-weight: 300;
+    align-self: flex-start;
+}
+
+.todo__footer {
     display: flex;
     flex-direction: row;
     align-self: flex-end;
@@ -195,7 +224,19 @@ ul li:hover {
     margin-top: 2rem;
 }
 
-.showCompleteBtn {
+.footer__btn--complete .hide {
+    display: none;
+}
+
+.show-done .footer__btn--complete .hide {
+    display: inline;
+}
+
+.show-done .footer__btn--complete .show {
+    display: none;
+} 
+
+.footer__btn--complete {
     width: 200px;
     line-height: 1.5rem;
     border: none;
@@ -205,7 +246,7 @@ ul li:hover {
     margin: 3px;
 }
 
-.clearBtn {
+.footer__btn--clear {
     width: 200px;
     line-height: 1.5rem;
     border: none;
@@ -216,8 +257,10 @@ ul li:hover {
     background-color: #FFF;
 }
 
-.clearBtn:hover, .showCompleteBtn:hover {
+.footer__btn--clear:hover, .footer__btn--complete:hover {
     box-shadow: 1px 1px rgba(0, 0,0, 0.4);
+    color : #FD263D;
+    cursor: pointer;
 }
 
 .chill__box {
@@ -230,28 +273,4 @@ ul li:hover {
 
 .chill__box.hidden{
     display: none;
-}
-
-.chill__text {
-    font-size: 20px;
-}
-
-.chill__box.hidden {
-    display: none;
-}
-
-.controller {
-    background:none;
-    font-weight: 600;
-    padding: 0 1rem;
-}
-
-.show-hide {
-    border: none;
-    background: none;
-}
-
-.controller:hover {
-    color : #FD263D;
-    cursor: pointer;
 }
