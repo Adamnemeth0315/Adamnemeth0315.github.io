@@ -51,9 +51,20 @@ body {
 .cardHolder {
     display: flex;
     flex-wrap: wrap;
-    width: 650px;
-    height: 350px;
+    max-width: 600px;
+    height: 320px;
     justify-content: space-evenly;
+}
+
+@media only screen and (min-width: 720px){
+    .cardHolder {
+        display: flex;
+        flex-wrap: wrap;
+        min-width: 680px;
+        height: 350px;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
 }
 
 .card {
@@ -63,7 +74,7 @@ body {
     transition: all 0.9s ease-out;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
-    margin: .4rem;
+    margin: .6rem .4rem;
 }
 
 .card:hover {
@@ -127,6 +138,7 @@ body {
 .armorCrock {
     background-image: url(pictures/5.jpg); 
 }
+
 
 .modal {
     display: none;
