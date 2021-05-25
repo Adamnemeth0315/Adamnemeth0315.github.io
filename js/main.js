@@ -3,7 +3,7 @@
 const cards = document.querySelectorAll('.card');
 const cardsFront = document.querySelectorAll('.flip-front');
 const cardsBack = document.querySelectorAll('.flip-back');
-let counter = 0; 
+let counter = 0;
 const imagesArray = [...cardsBack];
 const deckOfCards = ['toldiCrock', 'pancratorCrock', 'armyCrock', 'jungleCrock', 'armorCrock'];
 const dubleDeck = deckOfCards.concat(deckOfCards);
@@ -53,7 +53,7 @@ const backFlip = () => {
 }
 
 const wrongFlip = () => {
-    setTimeout(function(){
+    setTimeout(function () {
         flips.forEach(item => item.classList.toggle('card--flip'))
         flips = [];
     }, 1000);
@@ -71,7 +71,7 @@ const removeTimerListener = () => {
 };
 
 const startTimer = () => {
-    if (stopperIsRunning){
+    if (stopperIsRunning) {
         return
     }
     const timerContainer = document.querySelector('.timer');
@@ -96,8 +96,8 @@ const isPair = (pair, flippedCard) => {
     pairs.push(pair);
     flips.push(flippedCard);
     if (pairs.length === 2) {
-        if (pairs.every((item, index, pairs) => item ===pairs[0])){
-            pairs =[];
+        if (pairs.every((item, index, pairs) => item === pairs[0])) {
+            pairs = [];
             flips = [];
             counter += 1;
             clickProtection()
@@ -106,18 +106,18 @@ const isPair = (pair, flippedCard) => {
         } else {
             clickProtection()
             setTimeout((clickProtection), 900)
-            wrongFlip(); 
+            wrongFlip();
         }
     }
 }
 
 const clickProtection = () => {
-    cards.forEach(card => {card.classList.toggle('noneclick')});
+    cards.forEach(card => { card.classList.toggle('noneclick') });
 }
 
 const winConditions = () => {
-    counter === 5 ? clearInterval(startTimer) : '';
-    counter === 5 ? popUp() : '';
+    counter === 5 ? clearInterval(timer) : '';
+    counter === 5 ? setTimeout(popUp, 1000) : '';
     counter === 5 ? setTimeout(restartGame, 5000) : '';
     counter === 5 ? setTimeout(popDown, 5000) : '';
 }
@@ -134,11 +134,12 @@ startTheGame();
 
 const modal = document.querySelector('.modal');
 const closeButton = document.querySelector('.modal__close');
-const timeStat = document.querySelector('.timeStat');
+const timeStat = document.querySelector('.timerstat');
 
 const popUp = () => {
-modal.classList.add('modal__up')
-modal.classList.remove('modal__hide');
+    modal.classList.add('modal__up')
+    modal.classList.remove('modal__hide');
+    printTime();
 }
 
 const popDown = () => {
@@ -147,30 +148,29 @@ const popDown = () => {
 }
 
 const printTime = () => {
-    timerStat.textContent = `Your time was: ${document.querySelector('.timer').textContent}`;
+    timeStat.textContent = `Your time was: ${document.querySelector('.timer').textContent}`;
 }
 
-(function modalClose(){
+(function modalClose() {
     closeWithX();
     eventSideOutModal();
 })();
 
 function closeWithX() {
     closeButton.addEventListener('click', () => {
-    modal.classList.remove('modal__up');
-    modal.classList.add('modal__hide');
+        modal.classList.remove('modal__up');
+        modal.classList.add('modal__hide');
     });
 }
 
 function eventSideOutModal() {
     modal.addEventListener('click', (event) => {
-      if (event.target === modal) {
-        modal.classList.add('modal__hide');
-        modal.classList.remove('modal__up');
-      }
+        if (event.target === modal) {
+            modal.classList.add('modal__hide');
+            modal.classList.remove('modal__up');
+        }
     })
-  };
+};
 
 
 
-  
